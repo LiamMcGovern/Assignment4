@@ -15,7 +15,7 @@ public class Assign4 {
 
 		while (true) {
 			try {
-				iArrLength = Integer.parseInt(input.next());
+				iArrLength = Integer.parseInt(input.next()); //don't allow user to input anything but a a Int
 				break;
 			} catch (NumberFormatException e) {
 				System.out.println("Please enter a valid integer");
@@ -31,7 +31,7 @@ public class Assign4 {
 
 			while (true) {
 				try {
-					iData[i] = Integer.parseInt(input.next());
+					iData[i] = Integer.parseInt(input.next()); //don't allow user to input anything but a a Int
 					break;
 				} catch (NumberFormatException e) {
 					System.out.println("Please enter a valid integer");
@@ -42,8 +42,14 @@ public class Assign4 {
 	}
 
 	public void displayUniqueNumbers() {
-		for (int i = 0; i < iArrLength; i++) {
-
+		for (int i = 1; i < iArrLength; i++) {
+			
+			for(int j = i; j < iArrLength; i++){
+				
+				if (iData[j] == iData[i]){
+					iData[i]= 0;
+				}
+			}
 		}
 	}
 
@@ -57,8 +63,8 @@ public class Assign4 {
 		Assign4 ign4 = new Assign4();
 		ign4.getArrayLength();
 		ign4.getArrayData();
-		ign4.test();
-
+		//ign4.test();
+		ign4.displayUniqueNumbers();
 		input.close();
 	}
 
