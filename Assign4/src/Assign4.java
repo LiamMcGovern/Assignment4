@@ -3,59 +3,68 @@ import java.util.Scanner;
 public class Assign4 {
 	private int iArrLength;
 	static Scanner input = new Scanner(System.in);
-	private int iData[];
+	private int iUniqueNumbers[];
+	private int iNotUnique[];
 
 	Assign4() {
 		iArrLength = 0;
 	}
 
-	public void getArrayLength() {
-		System.out
-				.println("Please enter the quanity of unique numbers you will enter");
+	private void getArrayLength() {
+		System.out.println("Please enter the quanity of unique numbers you will enter");
 
 		while (true) {
 			try {
 				iArrLength = Integer.parseInt(input.next()); //don't allow user to input anything but a a Int
-				break;
+				if (iArrLength > 0){
+					break;
+				} else {
+					System.out.println("Enter a number greater than 0");
+				}
 			} catch (NumberFormatException e) {
 				System.out.println("Please enter a valid integer");
 			}
 		}
-		iData = new int[iArrLength];
+		iUniqueNumbers = new int[iArrLength];
+		iNotUnique = new int[iArrLength];
 	}
 
-	public void getArrayData() {
+	private void getArrayData() {
 
 		System.out.println("Please enter " + iArrLength + " number(s):");
 		for (int i = 0; i < iArrLength; i++) {
 
 			while (true) {
 				try {
-					iData[i] = Integer.parseInt(input.next()); //don't allow user to input anything but a a Int
+					iUniqueNumbers[i] = Integer.parseInt(input.next()); //don't allow user to input anything but a a Int
+					iNotUnique[i]=-1;
 					break;
 				} catch (NumberFormatException e) {
 					System.out.println("Please enter a valid integer");
 				}
 			}
 		}
-
-	}
-
-	public void displayUniqueNumbers() {
-		for (int i = 1; i < iArrLength; i++) {
-			
-			for(int j = i; j < iArrLength; i++){
-				
-				if (iData[j] == iData[i]){
-					iData[i]= 0;
+}
+	//}
+//
+	private void displayUniqueNumbers() {
+		System.out.print("The unique numbers you entered are:\t");
+		if (iArrLength > 1){ //no sense in checking for unique numbers if there is only 1,
+			for (int i = 1; i < iArrLength; i++) { //starting from the last position in the index, subtract one until you are at the first.
+				for(int j = 0; j< iArrLength; j++){//starting at the first position in the index, increasing until the limit
+					if (iUniqueNumbers[i] == iUniqueNumbers[j] && i !=j ){
+						iUniqueNumbers[i]= -1;
+					}
 				}
 			}
+			
+		} else {
+			System.out.println(iUniqueNumbers[0]);
 		}
 	}
-
-	public void test() {
+	private void test() {
 		for (int i = 0; i < iArrLength; i++) {
-			System.out.println("The value of the array is " + iData[i]);
+			System.out.println("The value of the array is " + iUniqueNumbers[i]);
 		}
 	}
 
@@ -63,8 +72,10 @@ public class Assign4 {
 		Assign4 ign4 = new Assign4();
 		ign4.getArrayLength();
 		ign4.getArrayData();
-		//ign4.test();
+		ign4.test();
+		System.out.println("_____________________________________________________________________________________________________________");
 		ign4.displayUniqueNumbers();
+		ign4.test();
 		input.close();
 	}
 
