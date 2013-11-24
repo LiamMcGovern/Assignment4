@@ -48,7 +48,6 @@ public class Assign4 {
 	//}
 //
 	private void findUniqueNumbers() {
-		System.out.print("The unique numbers you entered are:\t");
 		if (iArrLength > 1){ //no sense in checking for unique numbers if there is only 1,
 			for (int i = 1; i < iArrLength; i++) { //starting from the last position in the index, subtract one until you are at the first.
 				for(int j = 0; j< iArrLength; j++){//starting at the first position in the index, increasing until the limit
@@ -59,6 +58,7 @@ public class Assign4 {
 			}
 			
 		} else {
+			System.out.print("The unique number you entered is:\t");
 			System.out.println(iUniqueNumbers[0]);
 		}
 	}
@@ -67,16 +67,26 @@ public class Assign4 {
 			System.out.println("The value of the array is " + iUniqueNumbers[i]);
 		}
 	}
+	private void displayUniqueNumbers(){
+		System.out.print("The unique numbers you entered are:\t");
+		for (int i = 0; i < iArrLength; i++) {
+			if(bNotUnique[i] == false){
+				System.out.print(iUniqueNumbers[i]);
+			}
+		}
+	}
 
 	public static void main(String[] args) {
 		Assign4 ign4 = new Assign4();
 		ign4.getArrayLength();
 		ign4.getArrayData();
+		input.close();
 		ign4.test();
 		System.out.println("_____________________________________________________________________________________________________________");
 		ign4.findUniqueNumbers();
+		ign4.displayUniqueNumbers();
 		ign4.test();
-		input.close();
+
 	}
 
 }
