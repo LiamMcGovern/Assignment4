@@ -4,7 +4,7 @@ public class Assign4 {
 	private int iArrLength;
 	static Scanner input = new Scanner(System.in);
 	private int iUniqueNumbers[];
-	private int iNotUnique[];
+	private boolean bNotUnique[];
 
 	Assign4() {
 		iArrLength = 0;
@@ -26,7 +26,7 @@ public class Assign4 {
 			}
 		}
 		iUniqueNumbers = new int[iArrLength];
-		iNotUnique = new int[iArrLength];
+		bNotUnique = new boolean[iArrLength];
 	}
 
 	private void getArrayData() {
@@ -37,7 +37,7 @@ public class Assign4 {
 			while (true) {
 				try {
 					iUniqueNumbers[i] = Integer.parseInt(input.next()); //don't allow user to input anything but a a Int
-					iNotUnique[i]=-1;
+					bNotUnique[i]=false;
 					break;
 				} catch (NumberFormatException e) {
 					System.out.println("Please enter a valid integer");
@@ -47,13 +47,13 @@ public class Assign4 {
 }
 	//}
 //
-	private void displayUniqueNumbers() {
+	private void findUniqueNumbers() {
 		System.out.print("The unique numbers you entered are:\t");
 		if (iArrLength > 1){ //no sense in checking for unique numbers if there is only 1,
 			for (int i = 1; i < iArrLength; i++) { //starting from the last position in the index, subtract one until you are at the first.
 				for(int j = 0; j< iArrLength; j++){//starting at the first position in the index, increasing until the limit
 					if (iUniqueNumbers[i] == iUniqueNumbers[j] && i !=j ){
-						iUniqueNumbers[i]= -1;
+						bNotUnique[i]= true;
 					}
 				}
 			}
@@ -74,7 +74,7 @@ public class Assign4 {
 		ign4.getArrayData();
 		ign4.test();
 		System.out.println("_____________________________________________________________________________________________________________");
-		ign4.displayUniqueNumbers();
+		ign4.findUniqueNumbers();
 		ign4.test();
 		input.close();
 	}
