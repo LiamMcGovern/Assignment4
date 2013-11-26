@@ -47,12 +47,18 @@ public class Assign4 {
 }
 	//}
 //
+	/*
+	 * New Idea, make a second list, and create a loop that enters a number, 
+	 * if it's not already in the list, display that list
+	 * this eliminates the issues that result of setting non uniques to 1.
+	 */
 	private void findUniqueNumbers() {
 		if (iArrLength > 1){ //no sense in checking for unique numbers if there is only 1,
 			for (int i = 1; i < iArrLength; i++) { //starting from the last position in the index, subtract one until you are at the first.
 				for(int j = 0; j< iArrLength; j++){//starting at the first position in the index, increasing until the limit
 					if (iUniqueNumbers[i] == iUniqueNumbers[j] && i !=j ){
 						bNotUnique[i]= true;
+						//break;
 					}
 				}
 			}
@@ -85,8 +91,8 @@ public class Assign4 {
 		System.out.println("_____________________________________________________________________________________________________________");
 		ign4.findUniqueNumbers();
 		ign4.displayUniqueNumbers();
-		ign4.test();
 
-	}
+
+	} 
 
 }
