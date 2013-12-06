@@ -1,3 +1,11 @@
+/**
+ * Class: 			CST8110
+ * Lab Teacher:     Prof. Howard Rosenblum
+ * Lab Section: 	402
+ * Student: 		Liam McGovern
+ * Assignment:		#4 Unique Numbers.
+ */
+
 public class Assign4 {
 	public static void main(String[] args) {
 		UniqueNumbers un1 = new UniqueNumbers();
