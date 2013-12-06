@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class UniqueNumbers {
 	Scanner input = new Scanner(System.in);
-	 private int iArrLength;
+	private int iArrLength;
 	private int iEnteredNumbers[];
 	private int iUniqueNumbers[];
 	private int iUniqueIndexCount;
